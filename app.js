@@ -25,3 +25,37 @@ function parseCSV(csvData) {
 const csvData =
   "ID,Name,Occupation,Age\n42,Bruce,Knight,41\n57,Bob,Fry Cook,19\n63,Blaine,Quiz Master,58\n98,Bill,Doctor’s Assistant,26";
 const parsedData = parseCSV(csvData);
+
+// p3
+// For each row of data in the result array produced by your code above, create an object where the key of each value is the heading for that value’s column.
+// Convert these keys to all lowercase letters for consistency.
+// Store these objects in an array, in the order that they were originally listed.
+// Since the heading for each column will be stored in the object keys, you do not need to create an object for the heading row itself.
+
+function transformToObjects(data2D) {
+  const columns = data2D[0]; //
+  const lowerCaseColumns = columns.map((column) => column.toLowerCase()); // changed headers to lowercase
+
+  const objects = [];
+  for (let i = 1; i < data2D.length; i++) {
+    const row = data2D[i];
+    const obj = {};
+    for (let j = 0; j < row.length; j++) {
+      obj[lowerCaseColumns[j]] = row[j];
+    }
+    objects.push(obj); // Added object to result array
+  }
+
+  console.log("Transformed Data:", objects);
+  return objects;
+}
+//made my array
+const data2D = [
+  ["ID", "Name", "Occupation", "Age"],
+  ["42", "Bruce", "Knight", "41"],
+  ["57", "Bob", "Fry Cook", "19"],
+  ["63", "Blaine", "Quiz Master", "58"],
+  ["98", "Bill", "Doctor’s Assistant", "26"],
+];
+
+const dataObjects = transformToObjects(data2D);
