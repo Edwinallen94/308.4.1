@@ -58,4 +58,47 @@ const data2D = [
   ["98", "Bill", "Doctor’s Assistant", "26"],
 ];
 
-const dataObjects = transformToObjects(data2D);
+const newObjects = transformToObjects(data2D);
+
+// p4
+// Example array of objects from Part 3
+const dataObjects = [
+  { id: "42", name: "Bruce", occupation: "Knight", age: "41" },
+  { id: "57", name: "Bob", occupation: "Fry Cook", age: "19" },
+  { id: "63", name: "Blaine", occupation: "Quiz Master", age: "58" },
+];
+
+// Function to change data
+function changedData(objectsArray) {
+  // Remove the last object from the array
+  objectsArray.pop();
+
+  // Add a new object at index 1
+  objectsArray.splice(1, 0, {
+    id: "48",
+    name: "Barry",
+    occupation: "Runner",
+    age: "25",
+  });
+
+  // Add a new object to the end of the array
+  objectsArray.push({
+    id: "7",
+    name: "Bilbo",
+    occupation: "None",
+    age: "111",
+  });
+
+  // finding the average age
+  let totalAge = 0; //
+  for (let i = 0; i < objectsArray.length; i++) {
+    totalAge += Number(objectsArray[i].age); // change age to number and add to total
+  }
+  const averageAge = totalAge / objectsArray.length; // Calculate average
+
+  console.log("new", objectsArray);
+  console.log("Average Age:", averageAge.toFixed(2)); // Show average age with 2 decimal places
+}
+
+// Calling the function with the dataObjects array
+changedData(dataObjects);
