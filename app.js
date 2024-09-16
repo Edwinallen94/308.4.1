@@ -1,3 +1,13 @@
+// Part 2: Expanding Functionality
+
+// Declare a variable that stores the number of columns in each row of data within the CSV.
+// Instead of hard-coding four columns per row, expand your code to accept any number of columns. This should be calculated dynamically based on the first row of data.
+
+// Store your results in a two-dimensional array.
+// Each row should be its own array, with individual entries for each column.
+// Each row should be stored in a parent array, with the heading row located at index 0.
+// Cache this two-dimensional array in a variable for later use.
+
 function parseCSV(csvData) {
   const rows = csvData.split("\n");
 
